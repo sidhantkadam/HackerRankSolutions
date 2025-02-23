@@ -1,12 +1,20 @@
 package Algorithm;
 
-public class CountingValleys
-{
-    //  Not Implemented
-
+public class CountingValleys {
     public static int countingValleys(int steps, String path) {
-
-        return steps;
+        int count = 0;
+        int countValley = 0;
+        for (char c : path.toCharArray()) {
+            if (c == 'D') {
+                count--;
+            } else if (c == 'U') {
+                count++;
+                if (count == 0) {
+                    countValley++;
+                }
+            }
+        }
+        return countValley;
     }
 
     public static void main(String[] args) {
@@ -28,8 +36,8 @@ public class CountingValleys
          \/\/
        */
 
-    int steps = 8;
-    String path = "UDDDUDUU";
-    System.out.println(countingValleys(steps, path));
+        int steps = 12;
+        String path = "DDUUDDUDUUUD";
+        System.out.println(countingValleys(steps, path));
     }
 }
